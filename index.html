@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Superfun QR Code Generator</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-8 font-sans">
+<!-- partial:index.partial.html -->
+<div class="w-full max-w-lg space-y-6">
+  <input 
+    id="text" 
+    type="text" 
+    value="https://superfun.games" 
+    class="w-full px-4 py-3 text-lg rounded-lg border-2 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 ease-in-out hover:border-blue-400 placeholder-gray-400 font-sans"
+    placeholder="Enter URL or text..."
+  />
+  <div class="steps flex justify-between text-gray-600">
+    <div>Step 1. Add URL <span class="hidden xs-inline">above</span></div>
+    <div>Step 2. Download QR <span class="hidden xs-inline">below</span></div>
+  </div>
+  <div id="qrcode" class="flex justify-center"></div>
+</div>
+<!-- partial -->
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='//cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js'></script>
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+[build]
+  # No build command needed for static files
+  publish = "."
+  functions = "netlify/functions"
+
+# Redirect all paths (except static files) to the QR generator function
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/qr/:splat"
+  status = 200
+  force = false  # Only redirect if file doesn't exist
+
+# Headers for caching QR codes
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
